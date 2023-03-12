@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    // 2列分のGridItem要素を用意する
+   let columns = [GridItem(.fixed(150)),GridItem(.fixed(150))]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            ScrollView() {
+                LazyVGrid(columns: columns) {
+                    ForEach((1...50), id: \.self) { num in
+                        Text("\(num)")
+                            .padding()
+                            .cornerRadius(75)
+                            .frame(width:150,height: 150)
+                            .background(Color.green)
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
