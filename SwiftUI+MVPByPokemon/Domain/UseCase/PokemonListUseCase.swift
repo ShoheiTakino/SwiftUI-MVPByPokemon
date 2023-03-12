@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Input
 
 protocol PokemonListUseCaseInput: AnyObject {
-   func fetchPokemonListItemRequest(completion: @escaping (Result<Void, Error>) -> Void)
+   func fetchPokemonListItemRequest(completion: @escaping (Result<[Pokemon], Error>) -> Void)
 }
 
 // MARK: - Presenter
@@ -28,7 +28,7 @@ final class PokemonListUseCase {
 
 extension PokemonListUseCase: PokemonListUseCaseInput {
     
-    func fetchPokemonListItemRequest(completion: @escaping (Result<Void, Error>) -> Void) {
+    func fetchPokemonListItemRequest(completion: @escaping (Result<[Pokemon], Error>) -> Void) {
         dataStore.fetchPokemonListItemRequest { result in
             completion(result)
         }
