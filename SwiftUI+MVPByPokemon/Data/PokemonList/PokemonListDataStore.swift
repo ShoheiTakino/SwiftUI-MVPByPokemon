@@ -10,12 +10,12 @@ import Foundation
 // MARK: - Input
 
 protocol PokemonListDataStoreInput: AnyObject {
-    func fetchPokemonListItemRequest(completion: @escaping (Result<Void, Error>) -> Void)
+    func fetchPokemonListItemRequest(completion: @escaping (Result<[Pokemon], Error>) -> Void)
 }
 
 final class PokemonListDataStore: PokemonListDataStoreInput {
     
-    func fetchPokemonListItemRequest(completion: @escaping (Result<Void, Error>) -> Void) {
-        
+    func fetchPokemonListItemRequest(completion: @escaping (Result<[Pokemon], Error>) -> Void) {
+        let url = "https://pokeapi.co/api/v2/"
     }
 }
